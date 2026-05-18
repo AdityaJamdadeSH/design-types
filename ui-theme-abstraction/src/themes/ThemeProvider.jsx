@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { getTheme, getAllThemes } from './themeDefinitions';
+import { buildTheme, getAvailableOptions } from './themeConfig';
 import appSettings from '../../appsettings.json';
 
 const ThemeContext = createContext();
@@ -13,16 +13,23 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [currentThemeName, setCurrentThemeName] = useState(
-    appSettings.theme.active || appSettings.theme.defaultTheme
+  const [config, setConfig] = useState({
+    uiType: appSettings.theme.uiType || 'neo-brutalism',
+    fontScheme: appSettings.theme.fontScheme || 'bold',
+    colorScheme: appSettings.theme.colorScheme || 'vibrant'
+  });
+
+  const [theme, setTheme] = useState(
+    buildTheme(config.uiType, config.fontScheme, config.colorScheme)
   );
-  const [theme, setTheme] = useState(getTheme(currentThemeName));
+
+  const [portfolio] = useState(appSettings.portfolio);
 
   useEffect(() => {
-    const newTheme = getTheme(currentThemeName);
+    const newTheme = buildTheme(config.uiType, config.fontScheme, config.colorScheme);
     setTheme(newTheme);
     applyThemeToDocument(newTheme);
-  }, [currentThemeName]);
+  }, [config]);
 
   const applyThemeToDocument = (themeConfig) => {
     const root = document.documentElement;
@@ -32,41 +39,34 @@ export const ThemeProvider = ({ children }) => {
       root.style.setProperty(`--color-${key}`, value);
     });
 
-    // Apply spacing
-    Object.entries(themeConfig.spacing).forEach(([key, value]) => {
-      root.style.setProperty(`--spacing-${key}`, value);
+    // Apply fonts
+    Object.entries(themeConfig.fonts).forEach(([key, value]) => {
+      root.style.setProperty(`--font-${key}`, value);
     });
 
-    // Apply typography
-    Object.entries(themeConfig.typography).forEach(([key, value]) => {
-      root.style.setProperty(`--typography-${key}`, value);
-    });
-
-    // Apply effects
-    Object.entries(themeConfig.effects).forEach(([key, value]) => {
-      root.style.setProperty(`--effect-${key}`, value);
-    });
+    // Apply UI type properties
+    root.style.setProperty(`--border-radius`, themeConfig.borderRadius);
+    root.style.setProperty(`--border-width`, themeConfig.borderWidth);
+    root.style.setProperty(`--shadow-style`, themeConfig.shadowStyle);
+    if (themeConfig.blur) root.style.setProperty(`--blur`, themeConfig.blur);
+    if (themeConfig.transparency) root.style.setProperty(`--transparency`, themeConfig.transparency);
   };
 
-  const changeTheme = (themeName) => {
+  const changeConfig = (newConfig) => {
     if (!appSettings.theme.allowRuntimeSwitch) {
       console.warn('Runtime theme switching is disabled in appsettings.json');
       return;
     }
-    
-    if (getAllThemes().includes(themeName)) {
-      setCurrentThemeName(themeName);
-    } else {
-      console.error(`Theme "${themeName}" not found`);
-    }
+    setConfig({ ...config, ...newConfig });
   };
 
   const value = {
     theme,
-    currentThemeName,
-    changeTheme,
-    availableThemes: getAllThemes(),
-    canSwitchTheme: appSettings.theme.allowRuntimeSwitch
+    config,
+    portfolio,
+    changeConfig,
+    availableOptions: getAvailableOptions(),
+    canSwitch: appSettings.theme.allowRuntimeSwitch
   };
 
   return (
