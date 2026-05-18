@@ -1,0 +1,24 @@
+.button {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--effect-borderRadius);
+  font-weight: var(--typography-fontWeightBold);
+  font-size: var(--typography-fontSizeBase);
+  cursor: pointer;
+  transition: var(--effect-transition);
+  box-shadow: var(--effect-shadowSize) var(--color-shadow);
+  outline: none;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

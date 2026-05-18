@@ -255,6 +255,7 @@
   background: var(--white);
   border-top: 5px solid var(--border);
   border-bottom: 5px solid var(--border);
+  scroll-margin-top: 100px;
 }
 
 .container {
@@ -329,6 +330,7 @@
 .skills {
   padding: 6rem 2rem;
   background: var(--bg);
+  scroll-margin-top: 100px;
 }
 
 .skills-grid {
@@ -408,6 +410,7 @@
   padding: 6rem 2rem;
   background: var(--white);
   border-top: 5px solid var(--border);
+  scroll-margin-top: 100px;
 }
 
 .projects-grid {
@@ -529,6 +532,7 @@
   padding: 6rem 2rem;
   background: var(--bg);
   border-top: 5px solid var(--border);
+  scroll-margin-top: 100px;
 }
 
 .timeline {
@@ -624,6 +628,7 @@
   padding: 6rem 2rem;
   background: var(--white);
   border-top: 5px solid var(--border);
+  scroll-margin-top: 100px;
 }
 
 .contact-content {

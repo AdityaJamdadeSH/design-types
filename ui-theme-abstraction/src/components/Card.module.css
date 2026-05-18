@@ -1,0 +1,20 @@
+.card {
+  padding: var(--spacing-xl);
+  transition: var(--effect-transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.title {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+  font-size: var(--typography-fontSizeH3);
+  font-weight: var(--typography-fontWeightBold);
+}
+
+.content {
+  color: var(--color-textSecondary);
+  line-height: var(--typography-lineHeight);
+}

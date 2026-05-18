@@ -1,0 +1,86 @@
+:root {
+  /* Default CSS variables - will be overridden by theme */
+  --color-primary: #000;
+  --color-secondary: #666;
+  --color-accent: #999;
+  --color-background: #fff;
+  --color-surface: #f5f5f5;
+  --color-text: #000;
+  --color-textSecondary: #666;
+  --color-border: #ddd;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+
+  --typography-fontFamily: system-ui, sans-serif;
+  --typography-fontSizeBase: 16px;
+  --typography-fontSizeSmall: 14px;
+  --typography-fontSizeLarge: 18px;
+  --typography-fontSizeH1: 48px;
+  --typography-fontSizeH2: 36px;
+  --typography-fontSizeH3: 28px;
+  --typography-fontWeightNormal: 400;
+  --typography-fontWeightBold: 600;
+  --typography-fontWeightExtraBold: 700;
+  --typography-lineHeight: 1.6;
+
+  --effect-borderRadius: 8px;
+  --effect-borderWidth: 1px;
+  --effect-shadowSize: 0 2px 8px;
+  --effect-shadowOffset: 0;
+  --effect-blur: 0px;
+  --effect-transition: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--typography-fontFamily);
+  font-size: var(--typography-fontSizeBase);
+  line-height: var(--typography-lineHeight);
+  color: var(--color-text);
+  background: var(--color-background);
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--typography-fontWeightBold);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: var(--typography-fontSizeH1);
+}
+
+h2 {
+  font-size: var(--typography-fontSizeH2);
+}
+
+h3 {
+  font-size: var(--typography-fontSizeH3);
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

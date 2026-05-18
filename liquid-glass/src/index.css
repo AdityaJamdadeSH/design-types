@@ -22,15 +22,15 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   overflow-x: hidden;
   background: radial-gradient(circle at 20% 30%, #1a0f3e 0%, #0a0e27 40%, #0a0e27 100%);
   min-height: 100vh;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 #root {

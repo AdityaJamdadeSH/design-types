@@ -138,6 +138,7 @@
 /* Section */
 section {
   padding: 8rem 3rem;
+  scroll-margin-top: 100px;
 }
 
 .section-label {

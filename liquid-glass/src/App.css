@@ -322,6 +322,7 @@ section {
   padding: 7rem 2rem;
   position: relative;
   z-index: 1;
+  scroll-margin-top: 120px;
 }
 
 .section-title {
