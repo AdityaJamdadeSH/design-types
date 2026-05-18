@@ -1,0 +1,42 @@
+{
+  "name": "chameleon-ui",
+  "version": "1.0.0",
+  "description": "The ultimate adaptive design system - Build beautiful UIs that adapt to any brand in seconds",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "showcase": "npm run dev --workspace=apps/showcase",
+    "builder": "npm run dev --workspace=apps/builder",
+    "docs": "npm run dev --workspace=apps/docs"
+  },
+  "devDependencies": {
+    "turbo": "^1.13.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/chameleon-ui.git"
+  },
+  "keywords": [
+    "design-system",
+    "react",
+    "components",
+    "theming",
+    "design-tokens",
+    "ui-library",
+    "adaptive-design"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
